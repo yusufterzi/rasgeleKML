@@ -19,7 +19,7 @@ headers = {'Content-Type': 'application/json; charset=utf-8'}
 def getSword():
     itemname = request.args.get('itemname', default = '', type = str)
     data = ''
-    with open(itemname) as f:
+    with open(itemname + '.json') as f:
         data = json.load(f)
     return jsonify(data)
 
