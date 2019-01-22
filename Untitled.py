@@ -17,8 +17,9 @@ headers = {'Content-Type': 'application/json; charset=utf-8'}
 
 @app.route("/getSword")
 def getSword():
+    itemname = request.args.get('itemname', default = '', type = str)
     data = ''
-    with open('data2.json') as f:
+    with open(itemname) as f:
         data = json.load(f)
     return jsonify(data)
 
