@@ -6,6 +6,7 @@ from gevent.pywsgi import WSGIServer
 import resource
 from random import randint
 import bjoern
+import json
 
 
 
@@ -16,7 +17,10 @@ headers = {'Content-Type': 'application/json; charset=utf-8'}
 
 @app.route("/getSword")
 def getSword():
-    return jsonify(rr.json())
+    data = ''
+    with open('data2.json') as f:
+        data = json.load(f)
+    return data
 
 
 if __name__ == '__main__':
